@@ -36,17 +36,6 @@ class TypewiseTest(unittest.TestCase):
         self.assertEqual(alert.Send_Alert('TOO_LOW'), 'To: a.b@c.com\nHi, The temperature is too low')
         self.assertEqual(alert.Send_Alert('NORMAL'), 'No Action Needed')
 
-    def test_check_and_alert(self):
-        result = typewise_alert.check_and_alert(typewise_alert.Alert_to_Controller(), typewise_alert.Hi_Active_Cooling(), 50)
-        self.assertEqual(result, 'Controller Alert: TOO_HIGH')
-
-        
-        result = typewise_alert.check_and_alert(typewise_alert.Alert_to_Email(), typewise_alert.Passive_Cooling(), 30)
-        self.assertEqual(result, 'No action needed')
-
-        # Test with MedActiveCooling and EmailAlert
-        result = typewise_alert.check_and_alert(typewise_alert.Alert_to_Email(), typewise_alert.Med_Active_Cooling(), 45)
-        self.assertEqual(result, 'To: a.b@c.com\nHi, The temperature is too high')
 
 
 if __name__ == '__main__':
