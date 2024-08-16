@@ -13,28 +13,28 @@ class TypewiseTest(unittest.TestCase):
 
     def test_passive_cooling_breach(self):
         cooling = typewise_alert.Passive_Cooling()
-        self.assertEqual(cooling.classify_breach(45), 'TOO_HIGH')
-        self.assertEqual(cooling.classify_breach(28), 'NORMAL')
+        self.assertEqual(cooling.classify_temperature_breach(45), 'TOO_HIGH')
+        self.assertEqual(cooling.classify_temperature_breach(28), 'NORMAL')
 
     def test_hi_active_cooling_breach(self):
         cooling = typewise_alert.Hi_Active_Cooling()
-        self.assertEqual(cooling.classify_breach(65), 'TOO_HIGH')
-        self.assertEqual(cooling.classify_breach(40), 'NORMAL')
+        self.assertEqual(cooling.classify_temperature_breach(65), 'TOO_HIGH')
+        self.assertEqual(cooling.classify_temperature_breach(40), 'NORMAL')
 
     def test_med_active_cooling_breach(self):
         cooling = typewise_alert.Med_Active_Cooling()
-        self.assertEqual(cooling.classify_breach(47), 'TOO_HIGH')
-        self.assertEqual(cooling.classify_breach(33), 'NORMAL')
+        self.assertEqual(cooling.classify_temperature_breach(47), 'TOO_HIGH')
+        self.assertEqual(cooling.classify_temperature_breach(33), 'NORMAL')
 
     def test_controller_alert(self):
         alert = typewise_alert.Alert_to_Controller()
-        self.assertEqual(alert.send_alert('TOO_HIGH'), 'Controller Alert: TOO_HIGH')
+        self.assertEqual(alert.Send_Alert('TOO_HIGH'), 'Controller Alert: TOO_HIGH')
 
     def test_email_alert(self):
         alert = typewise_alert.Alert_to_Email()
-        self.assertEqual(alert.send_alert('TOO_HIGH'), 'To: a.b@c.com\nHi, The temperature is too high')
-        self.assertEqual(alert.send_alert('TOO_LOW'), 'To: a.b@c.com\nHi, The temperature is too low')
-        self.assertEqual(alert.send_alert('NORMAL'), 'No Action Needed')
+        self.assertEqual(alert.Send_Alert('TOO_HIGH'), 'To: a.b@c.com\nHi, The temperature is too high')
+        self.assertEqual(alert.Send_Alert('TOO_LOW'), 'To: a.b@c.com\nHi, The temperature is too low')
+        self.assertEqual(alert.Send_Alert('NORMAL'), 'No Action Needed')
 
     def test_check_and_alert(self):
         result = typewise_alert.check_and_alert(typewise_alert.Alert_to_Controller(), typewise_alert.Hi_Active_Cooling(), 50)
