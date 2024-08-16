@@ -13,18 +13,18 @@ class TypewiseTest(unittest.TestCase):
 
     def test_passive_cooling_breach(self):
         cooling = typewise_alert.Passive_Cooling()
-        self.assertEqual(cooling.classify_temperature_breach(45), 'TOO_HIGH')
-        self.assertEqual(cooling.classify_temperature_breach(28), 'NORMAL')
+        self.assertEqual(cooling.classify_temperature_breach(40), 'TOO_HIGH')
+        self.assertEqual(cooling.classify_temperature_breach(30), 'NORMAL')
 
     def test_hi_active_cooling_breach(self):
         cooling = typewise_alert.Hi_Active_Cooling()
-        self.assertEqual(cooling.classify_temperature_breach(65), 'TOO_HIGH')
+        self.assertEqual(cooling.classify_temperature_breach(50), 'TOO_HIGH')
         self.assertEqual(cooling.classify_temperature_breach(40), 'NORMAL')
 
     def test_med_active_cooling_breach(self):
         cooling = typewise_alert.Med_Active_Cooling()
-        self.assertEqual(cooling.classify_temperature_breach(47), 'TOO_HIGH')
-        self.assertEqual(cooling.classify_temperature_breach(33), 'NORMAL')
+        self.assertEqual(cooling.classify_temperature_breach(45), 'TOO_HIGH')
+        self.assertEqual(cooling.classify_temperature_breach(35), 'NORMAL')
 
     def test_controller_alert(self):
         alert = typewise_alert.Alert_to_Controller()
