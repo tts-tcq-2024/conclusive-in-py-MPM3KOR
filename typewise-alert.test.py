@@ -1,5 +1,5 @@
 import unittest
-import typewise_alert
+import typewise-alert
 
 class TypewiseTest(unittest.TestCase):
     def test_infers_breach_as_per_limits(self):
