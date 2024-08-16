@@ -48,7 +48,7 @@ class Alert_to_Email(Send_Alert):
 # Core function using strategies
 def check_and_alert(alert_strategy, cooling_type_strategy, temperatureInC):
     breach_type = cooling_type_strategy.classify_temperature_breach(temperatureInC)
-    alert_strategy.send_alert(breach_type)
+    alert_strategy.Send_Alert(breach_type)
 
 # Usage
 cooling_type = Hi_Active_Cooling() 
