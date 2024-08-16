@@ -28,13 +28,13 @@ class TypewiseTest(unittest.TestCase):
 
     def test_controller_alert(self):
         alert = typewise_alert.Alert_to_Controller()
-        self.assertEqual(alert.Send_Alert('TOO_HIGH'), 'Controller Alert: TOO_HIGH')
+        self.assertEqual(alert.send_alert('TOO_HIGH'), 'Controller Alert: TOO_HIGH')
 
     def test_email_alert(self):
         alert = typewise_alert.Alert_to_Email()
-        self.assertEqual(alert.Send_Alert('TOO_HIGH'), 'To: a.b@c.com\nHi, The temperature is too high')
-        self.assertEqual(alert.Send_Alert('TOO_LOW'), 'To: a.b@c.com\nHi, The temperature is too low')
-        self.assertEqual(alert.Send_Alert('NORMAL'), 'No Action Needed')
+        self.assertEqual(alert.send_alert('TOO_HIGH'), 'To: a.b@c.com\nHi, The temperature is too high')
+        self.assertEqual(alert.send_alert('TOO_LOW'), 'To: a.b@c.com\nHi, The temperature is too low')
+        self.assertEqual(alert.send_alert('NORMAL'), 'No Action Needed')
 
 
 
