@@ -8,15 +8,15 @@ class Cooling_Type(ABC):
 
 class Passive_Cooling(Cooling_Type):
     def classify_temperature_breach(self, temperatureInC):
-        return infer_breach(temperature_in_c, 0, 35)
+        return infer_breach(temperatureInC, 0, 35)
 
 class Hi_Active_Cooling(Cooling_Type):
     def classify_temperature_breach(self, temperatureInC):
-        return infer_breach(temperature_in_c, 0, 45)
+        return infer_breach(temperatureInC, 0, 45)
 
 class Med_Active_Cooling(Cooling_Type):
     def classify_temperature_breach(self, temperatureInC):
-        return infer_breach(temperature_in_c, 0, 40)
+        return infer_breach(temperatureInC, 0, 40)
 
 # Alert strategies
 class Send_Alert(ABC):
