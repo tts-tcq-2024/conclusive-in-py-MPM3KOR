@@ -4,14 +4,13 @@ Legacy code can be complex. It often starts simple, but collects complexity as t
 
 This repository has legacy code in it. Let's refactor to enable evolution without adding complexity.
 
-## About this repository
-
-The objective of the code is to monitor battery temperature and prevent damage:
+About this repository
+The objective of the code is to monitor battery temperature and prevent damage
 
 - Classify the temperature measurement as being too high or too low. This classification depends on the type of cooling. With active cooling, the battery can reach higher temperatures before taking action.
 - Transmit the classification to take action: When the system has a controller, send the classification to it. In the absence of a controller, send the classification via email. In this project, the transmission is 'simulated' by printing on the console.
 
-The [GitHub Actions](https://docs.github.com/en/actions) in this project implement several workflows:
+The [GitHub Actions](https://docs.github.com/en/actions) in this project implement several workflows
 
 - No Duplications: Fails on finding duplication of 3 lines or more. There are no duplications, so this passes.
 - Limit complexity: The limit per function is set at 3 and it's currently failing
@@ -42,9 +41,4 @@ You have seen a few workflows in this repository. They are quality-gates to prev
 YES
 
 During the next four weeks, what improvement do you plan in your code-quality practice? (in your regular work, not in this repository!)
-YAGNI Principle
-KISS Principle
-Open Close Principle
-Do Not Repeat Princple
-Cyclometric complexity to be reduced
-Cognitive complexity to be reduced.
+YAGNI Principle, KISS Principle, Open Close Principle, Do Not Repeat Princple, Cyclometric complexity to be reduced,Cognitive complexity to be reduced.
