@@ -25,18 +25,18 @@ class Med_Active_Cooling(Cooling_Type):
         return infer_breach(temperatureInC, 0, 40)
 
 # Alert strategies
-class Send_Alert(ABC):
+class Alert(ABC):
     @abstractmethod
-    def Send_Alert(self, breach_type):
+    def send_alert(self, breach_type):
         pass
 
-class Alert_to_Controller(Send_Alert):
-    def Send_Alert(self, breach_type):
+class Alert_to_Controller(Alert):
+    def send_alert(self, breach_type):
         header = 0xfeed
         print(f'{header}, {breach_type}')
 
-class Alert_to_Email(Send_Alert):
-    def Send_Alert(self, breach_type):
+class Alert_to_Email(Alert):
+    def send_alert(self, breach_type):
         recipient = "a.b@c.com"
         if breach_type == 'TOO_LOW':
             print(f'To: {recipient}')
@@ -48,7 +48,7 @@ class Alert_to_Email(Send_Alert):
 # Core function using strategies
 def check_and_alert(alert_strategy, cooling_type_strategy, temperatureInC):
     breach_type = cooling_type_strategy.classify_temperature_breach(temperatureInC)
-    alert_strategy.Send_Alert(breach_type)
+    alert_strategy.send_alert(breach_type)
 
 # Usage
 cooling_type = Hi_Active_Cooling() 
