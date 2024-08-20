@@ -45,7 +45,7 @@ class Electric_Cooling:
                 return f'To: {recipient}\nHi, The temperature is too low'
             elif breach_type == 'TOO_HIGH':
                 return f'To: {recipient}\nHi, The temperature is too high'
-            return 'No action needed'
+            return 'No Action Needed'
 
     
     @staticmethod
